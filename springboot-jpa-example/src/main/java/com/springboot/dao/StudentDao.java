@@ -17,5 +17,7 @@ public interface StudentDao {
 	List<StudentDetails> getStudentDetails();
 
 	List<StudentDetails> getStudentDetailsByAge(Integer age);
+	
+	List<StudentDetails> getStudentDetails(Integer pageNo, Integer pageSize,String sortValue);
 
 }

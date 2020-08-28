@@ -52,4 +52,21 @@ public class StudentDetails {
 		this.age = age;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("StudentDetails [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", age=");
+		builder.append(age);
+		builder.append(", address=");
+		builder.append(address);
+		builder.append(", stand=");
+		builder.append(stand);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import com.springboot.dao.StudentDao;
 import com.springboot.model.Result;
@@ -76,9 +77,38 @@ public class StudentServiceImpl implements StudentService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<StudentDetails> getStudentDetailsByAge(Integer age) {
+	public Object getStudentDetailsByAge(Integer age) {
 		
-		return studentDao.getStudentDetailsByAge(age);
+		List<StudentDetails> list = studentDao.getStudentDetailsByAge(age);
+		
+		if(CollectionUtils.isEmpty(list)) {
+			Result result = new Result();
+			result.setMessage("No students found for given age.");
+			result.setStatus("SUCCESS");
+			return result;
+		} else {
+			return list;
+		}
+	}
+
+	@Override
+	public List<StudentDetails> getStudentDetails(Integer pageNumber, Integer pageSize,String sortValue) {
+		
+		if(null == pageNumber) {
+			pageNumber = 1;
+		}
+		
+		if(null == pageSize || pageSize == 0) {
+			pageSize = 5;
+		}
+		
+		pageNumber = pageNumber - 1;
+		
+		pageNumber = pageNumber < 0 ? 0 :pageNumber;
+		
+		List<StudentDetails> list = studentDao.getStudentDetails(pageNumber, pageSize,sortValue);
+		
+		return list;
 	}
 
 }

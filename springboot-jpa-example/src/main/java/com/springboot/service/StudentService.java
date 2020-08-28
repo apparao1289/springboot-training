@@ -17,7 +17,9 @@ public interface StudentService {
 
 	List<StudentDetails> getStudentDetails();
 
-	List<StudentDetails> getStudentDetailsByAge(Integer age);
+	Object getStudentDetailsByAge(Integer age);
+	
+	List<StudentDetails> getStudentDetails(Integer pageNumber,Integer pageSize,String sortValue);
 
 
 }

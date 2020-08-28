@@ -6,6 +6,10 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.entity.Student;
@@ -93,9 +97,27 @@ public class StudentDaoImpl implements StudentDao {
 	public List<StudentDetails> getStudentDetailsByAge(Integer age) {
 		StudentDetails studentDetails = null;
 		List<StudentDetails> list = new ArrayList<>();
-		
+
 		List<Student> studentList = studentRepository.findByAge(age);
+
+		for (Student s : studentList) {
+			studentDetails = new StudentDetails();
+			BeanUtils.copyProperties(s, studentDetails);
+			list.add(studentDetails);
+		}
+		return list;
+	}
+
+	@Override
+	public List<StudentDetails> getStudentDetails(Integer pageNo, Integer pageSize,String sortValue) {
+		StudentDetails studentDetails = null;
+		List<StudentDetails> list = new ArrayList<>();
 		
+		Sort sort = Sort.by(sortValue);
+		Pageable pageable = PageRequest.of(pageNo, pageSize,sort);
+		Page<Student> studentPage = studentRepository.findAll(pageable);
+		List<Student> studentList = studentPage.getContent();
+
 		for (Student s : studentList) {
 			studentDetails = new StudentDetails();
 			BeanUtils.copyProperties(s, studentDetails);
