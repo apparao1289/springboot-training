@@ -15,3 +15,5 @@ For running the application open SpringbootJpaExampleApplication.java class and 
 Open your favorite browser, paste the below swagger link and hit enter
 
 http://localhost:8081/studentapi/swagger-ui.html
+
+Note: Corresponding DB scripts available in resources folder.
