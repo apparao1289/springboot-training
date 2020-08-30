@@ -1,3 +1,7 @@
+This example related to following functionality.
+1. Upload file/image 
+2. Excel functionality
+
 Download the code base .
 
 Eclipse --> File --> import --> Existing maven projects --> select the project code base.
