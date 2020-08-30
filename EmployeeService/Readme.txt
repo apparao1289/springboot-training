@@ -12,7 +12,7 @@ Click on "Run" button.
 
 For running the application open EmployeeServiceApplication.java class and right click -> Run As Spring Boot App
 
-Open your favorite browser, paste the below swagger link and hit enter
+Open your favorite browser, paste the below  link and hit enter
 
 http://localhost:8083/employee/registration
 
