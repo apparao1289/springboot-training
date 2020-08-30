@@ -1,7 +1,7 @@
 This example having below functionality.
 1. Create, update,delete, findXXX() methods using JPA
-2. @Query annatation
-3. Transaction Management using @Transactional annatation.
+2. @Query annotation
+3. Transaction Management using @Transactional annotation.
 
 Download the code base .
 
