@@ -1,3 +1,8 @@
+This example having functionality related to below ones.
+1. Externalized Configuration
+2. Profile management 
+3. Actuator endpoint configuration.
+
 Download the code base .
 
 Eclipse --> File --> import --> Existing maven projects --> select the project code base.
