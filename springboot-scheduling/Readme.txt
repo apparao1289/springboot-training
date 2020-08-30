@@ -1,3 +1,7 @@
+This example having below functionality.
+1. Scheduling using @Scheduled annotation
+2. Asynchronous calls using @Async annotation
+
 Download the code base .
 
 Eclipse --> File --> import --> Existing maven projects --> select the project code base.
